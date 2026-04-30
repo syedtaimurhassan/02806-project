@@ -1,0 +1,50 @@
+# macOS / editor noise
+.DS_Store
+**/.DS_Store
+.ipynb_checkpoints/
+.vscode/
+
+# Python / notebook cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local virtual environments
+.venv/
+venv/
+env/
+
+# Raw data and archives: use NYC Open Data instead of committing these.
+Parking_Violations_Issued_-_Fiscal_Year_2025.csv
+*.zip
+outputs.zip
+
+# Heavy executed notebook. Commit the stripped GitHub copy instead.
+analysis.ipynb
+
+# Generated/intermediate analysis outputs copied into site/ where needed.
+outputs/
+
+# Local course/context notes and drafts not required for the final website/notebook.
+social_viz_llm_context.md
+trafic draft.rtfd/
+project-req.rtf
+
+# Older root-level website scratch files. The final site lives in site/.
+/assets/
+/styles.css
+/script.js
+
+# Lightweight site data used during development, not needed by the static page.
+site/data/
+
+# Empty/placeholder site asset folder; keep only if real assets are added later.
+site/assets/
+
+# Optional figure exports not embedded in the current GitHub Pages story.
+site/figures/fig12_dominant_family_by_precinct.html
+site/figures/fig13_street_cleaning_precinct_share.html
+site/figures/fig_dominant_family_by_precinct_map.html
+site/figures/fig_real_precinct_concentration_curve.html

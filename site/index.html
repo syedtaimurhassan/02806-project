@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A scroll-based data story about NYC's FY2025 parking-ticket system, real precinct geography, rule types, timing, and estimated fine value."
+    />
+    <title>The Uneven Curb</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#intro">Skip to story</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="The Uneven Curb home">
+        <span class="brand-mark">UC</span>
+        <span>The Uneven Curb</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Story navigation">
+        <a href="#intro">Systems</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#precinct-zero">Precinct 0</a>
+        <a href="#concentration">Curb</a>
+        <a href="#specialization">Rules</a>
+        <a href="#fines">Fines</a>
+        <a href="#time">Clock</a>
+        <a href="#limits">Limits</a>
+        <a href="#references">Sources</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <p class="kicker">DTU Social Visualization final project</p>
+          <h1 id="hero-title">The Uneven Curb</h1>
+          <p class="subtitle">How NYC's Parking-Ticket System Changes Depending on Where You Stand</p>
+          <p class="hero-copy">
+            NYC issued millions of parking tickets in FY2025. At first, that looks like one giant citywide machine.
+          </p>
+          <p class="hero-copy">
+            But once we separate administrative records from real curbside precinct enforcement, a stranger and more interesting pattern appears: the parking-ticket system changes depending on where, when, and what kind of rule you are looking at.
+          </p>
+          <p class="hero-copy">
+            This project asks what the FY2025 issued-ticket dataset can show directly: the enforcement footprint across administrative buckets, real mappable precincts, violation families, ticket timing, and estimated fine value.
+          </p>
+          <div class="hero-actions" aria-label="Primary story links">
+            <a class="button primary" href="#intro">Start the story</a>
+            <a class="button secondary" href="#references">Methods and sources</a>
+          </div>
+        </div>
+        <aside class="stat-panel" aria-label="Project quick facts">
+          <div>
+            <strong>16,250,291</strong>
+            <span>cleaned FY2025 issued-ticket records</span>
+          </div>
+          <div>
+            <strong>46.3%</strong>
+            <span>assigned to Precinct 0</span>
+          </div>
+          <div>
+            <strong>78</strong>
+            <span>real mappable precincts analyzed</span>
+          </div>
+          <div>
+            <strong>27.2%</strong>
+            <span>of real-precinct tickets in the top 10% of precincts</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="story-section" id="intro" aria-labelledby="intro-title">
+        <div class="section-grid">
+          <div class="section-text">
+            <p class="section-number">01</p>
+            <h2 id="intro-title">One city, several ticket systems</h2>
+            <p>
+              A parking ticket looks simple from the outside: a car, a curb, a rule, and a piece of paper or camera record. The FY2025 dataset is not that simple.
+            </p>
+            <p>
+              Once the records are separated, NYC's parking-ticket system looks layered. Some records sit in an administrative bucket. Some belong to real mappable precincts. Some are mostly street cleaning, meters, hydrants, sticker checks, no-standing rules, or camera-related families.
+            </p>
+            <p>
+              That is the core idea of the story: the curb changes depending on where and when you meet it.
+            </p>
+            <p class="transition">
+              Before mapping anything, we need to know what is actually inside the ticket file.
+            </p>
+          </div>
+          <div class="callout">
+            <h3>Safe project claim</h3>
+            <p>
+              This story is about the enforcement footprint of issued tickets. It does not claim to measure every parking-rule event, final payment outcome, or why a ticket was issued.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section tinted" id="dataset" aria-labelledby="dataset-title">
+        <div class="section-grid">
+          <div class="section-text">
+            <p class="section-number">02</p>
+            <h2 id="dataset-title">What we are looking at</h2>
+            <p>
+              This project uses NYC's FY2025 Parking Violations Issued dataset. After basic cleaning, the analysis keeps <strong>16,250,291 issued ticket records</strong> from <strong>July 1, 2024 through June 30, 2025</strong>.
+            </p>
+            <p>
+              Each row is an issued ticket record. That matters. An issued ticket is not the same as a paid ticket, a final payment record, or a complete count of every parking-rule event in the city.
+            </p>
+            <p>
+              The dataset is strongest when used for what it can show directly: where issued tickets appear in the records, which violation families they belong to, when they were issued, and how estimated fine value changes the picture.
+            </p>
+            <p class="transition">
+              Once the file is cleaned, the first surprise is that one of the biggest "places" in the data is not really a place at all.
+            </p>
+          </div>
+          <figure class="chart-card compact">
+            <div class="chart-header">
+              <p class="eyebrow">Figure 1</p>
+              <h3>The biggest rule families</h3>
+            </div>
+            <div class="iframe-wrap">
+              <iframe
+                src="figures/fig8_violation_family_totals.html"
+                title="Top violation families in the cleaned FY2025 issued-ticket dataset"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <figcaption>
+              <strong>How to read it:</strong> Larger bars represent violation families with more issued tickets in the cleaned FY2025 data.
+              <br />
+              <strong>Careful:</strong> Citywide family totals mix Precinct 0, automated/admin records, and real precinct records, so this is an overview, not a real-precinct map.
+            </figcaption>
+            <p class="iframe-fallback">
+              If this figure does not load, <a href="figures/fig8_violation_family_totals.html">open the violation-family totals directly</a>.
+            </p>
+          </figure>
+        </div>
+      </section>
+
+      <section class="story-section" id="precinct-zero" aria-labelledby="precinct-zero-title">
+        <div class="section-text wide">
+          <p class="section-number">03</p>
+          <h2 id="precinct-zero-title">The place that is not a place</h2>
+          <p>
+            The first surprise is <strong>Precinct 0</strong>. It sounds like a normal precinct, but it should not be read like a neighborhood.
+          </p>
+          <p>
+            In the cleaned FY2025 data, Precinct 0 contains <strong>7,524,683 issued tickets</strong>, or <strong>46.3%</strong> of retained records. That is almost half the dataset sitting in a category that cannot be mapped like a regular place.
+          </p>
+          <p>
+            Its violation-family mix also looks different. Precinct 0 is dominated by camera and administrative-style families such as school-zone speed, bus lane / bus stop, red light, and MTA camera double parking.
+          </p>
+          <p class="transition">
+            With this administrative bucket separated, the real curbside geography becomes much clearer.
+          </p>
+        </div>
+
+        <figure class="chart-card">
+          <div class="chart-header">
+            <p class="eyebrow">Figure 2</p>
+            <h3>Precinct 0 is different</h3>
+          </div>
+          <div class="iframe-wrap">
+            <iframe
+              src="figures/fig_precinct0_vs_real_precincts.html"
+              title="Precinct 0 compared with real precincts by violation family"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <figcaption>
+            <strong>How to read it:</strong> Compare the family shares for Precinct 0 against the real-precinct group; hover for raw issued-ticket counts and percentages.
+            <br />
+            <strong>Careful:</strong> Precinct 0 is an administrative bucket and should not be mapped as a real neighborhood precinct.
+          </figcaption>
+          <p class="iframe-fallback">
+            If this figure does not load, <a href="figures/fig_precinct0_vs_real_precincts.html">open the Precinct 0 comparison directly</a>.
+          </p>
+        </figure>
+
+        <div class="interpretation">
+          <p>
+            Precinct 0 is analytically important, but it is not normal geography. Separating it makes the real curbside geography clearer.
+          </p>
+        </div>
+      </section>
+
+      <section class="story-section tinted" id="concentration" aria-labelledby="concentration-title">
+        <div class="section-text wide">
+          <p class="section-number">04</p>
+          <h2 id="concentration-title">The real curb is not evenly shared</h2>
+          <p>
+            After separating Precinct 0 and unmappable precinct labels, the analysis focuses on <strong>78 real mappable precincts</strong>. These precincts contain <strong>8,724,635 issued tickets</strong>.
+          </p>
+          <p>
+            The real curbside ticket footprint is not spread evenly. The top <strong>10%</strong> of mappable precincts account for <strong>27.2%</strong> of real-precinct tickets. The top <strong>25%</strong> account for <strong>49.9%</strong>.
+          </p>
+          <p>
+            That does not make the map a scorecard of what drivers do. It means the issued-ticket enforcement footprint is concentrated in some precincts more than others.
+          </p>
+          <p class="transition">
+            But ticket volume is only the first layer; the next question is what kinds of rules dominate in different places.
+          </p>
+        </div>
+
+        <figure class="chart-card map-card">
+          <div class="chart-header">
+            <p class="eyebrow">Figure 3</p>
+            <h3>Mapping the curbside footprint</h3>
+          </div>
+          <div class="iframe-wrap">
+            <iframe
+              src="figures/fig_real_precinct_ticket_share_map.html"
+              title="Map of real mappable precinct ticket shares"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <figcaption>
+            <strong>How to read it:</strong> Stronger-colored precincts carry a larger share of issued tickets among real mappable precincts. Hover for ticket count, share, dominant violation family, and average estimated fine where available.
+            <br />
+            <strong>Careful:</strong> This is not a risk map; it is not adjusted for curb length, meter density, population, car ownership, traffic, parking supply, or unticketed parking-rule events.
+          </figcaption>
+          <p class="iframe-fallback">
+            If this figure does not load, <a href="figures/fig_real_precinct_ticket_share_map.html">open the precinct ticket-share map directly</a>.
+          </p>
+        </figure>
+
+        <div class="interpretation">
+          <p>
+            This map shows where issued tickets appear in the records. It does not include the exposure data needed to compare parking demand or curb supply across precincts.
+          </p>
+        </div>
+      </section>
+
+      <section class="story-section" id="specialization" aria-labelledby="specialization-title">
+        <div class="section-text wide">
+          <p class="section-number">05</p>
+          <h2 id="specialization-title">Different precincts, different parking rules</h2>
+          <p>
+            Ticket volume is only one layer. The next question is what kinds of parking rules show up in different places.
+          </p>
+          <p>
+            Among real mappable precincts, <strong>Street cleaning</strong> is the dominant family in <strong>44 precincts</strong>. <strong>No standing / no parking</strong> leads in <strong>12 precincts</strong>. <strong>Meter / paid parking</strong> leads in <strong>12 precincts</strong>.
+          </p>
+          <p>
+            The specialization heatmap adds local flavor. A ratio above 1 means a violation family is more prominent in that precinct than it is citywide among real precincts.
+          </p>
+          <p class="transition">
+            Rule type also matters because not every issued ticket carries the same estimated dollar amount.
+          </p>
+        </div>
+
+        <figure class="chart-card wide-card">
+          <div class="chart-header">
+            <p class="eyebrow">Figure 4</p>
+            <h3>Different precincts, different rules</h3>
+          </div>
+          <div class="iframe-wrap">
+            <iframe
+              src="figures/fig_real_precinct_family_specialization_heatmap.html"
+              title="Heatmap of real precinct violation-family specialization"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <figcaption>
+            <strong>How to read it:</strong> Rows are precincts, columns are top violation families, and color shows the specialization ratio centered around 1. A value above 1 means that family is more prominent in that precinct than citywide among real precincts.
+            <br />
+            <strong>Careful:</strong> "More prominent" is a pattern in issued-ticket mix. It does not explain why the pattern exists.
+          </figcaption>
+          <p class="iframe-fallback">
+            If this figure does not load, <a href="figures/fig_real_precinct_family_specialization_heatmap.html">open the specialization heatmap directly</a>.
+          </p>
+        </figure>
+
+        <div class="interpretation">
+          <p>
+            The same citywide system can feel different depending on which violation families are most visible around a local curb.
+          </p>
+        </div>
+      </section>
+
+      <section class="story-section tinted" id="fines" aria-labelledby="fines-title">
+        <div class="section-text wide">
+          <p class="section-number">06</p>
+          <h2 id="fines-title">Tickets are counted once, but they do not cost the same</h2>
+          <p>
+            A ticket count treats every ticket as one unit. But not every ticket has the same dollar value.
+          </p>
+          <p>
+            Using the notebook's fine-estimation logic, real mappable precincts add up to <strong>$612,808,346.26</strong> in estimated fine value, with an average estimated fine of about <strong>$70.24 per ticket</strong>.
+          </p>
+          <p>
+            High-ticket precincts are often also high estimated-fine-value precincts. But the rankings are not identical because rule mix matters.
+          </p>
+          <p class="transition">
+            The same system also changes across the day, so the next layer is ticket timing.
+          </p>
+        </div>
+
+        <figure class="chart-card">
+          <div class="chart-header">
+            <p class="eyebrow">Figure 5</p>
+            <h3>Counts and estimated fine value</h3>
+          </div>
+          <div class="iframe-wrap">
+            <iframe
+              src="figures/fig_real_precinct_count_vs_estimated_fine_value.html"
+              title="Scatterplot of real precinct ticket counts against estimated fine value"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <figcaption>
+            <strong>How to read it:</strong> Each point is a real mappable precinct. Look for points above or below the main pattern; those are places where estimated fine value adds something beyond count alone.
+            <br />
+            <strong>Careful:</strong> This is estimated fine value from issued tickets, not money collected by the city.
+          </figcaption>
+          <p class="iframe-fallback">
+            If this figure does not load, <a href="figures/fig_real_precinct_count_vs_estimated_fine_value.html">open the count-versus-estimated-fine figure directly</a>.
+          </p>
+        </figure>
+
+        <div class="interpretation">
+          <p>
+            The dataset contains issued tickets, not payment outcomes, dismissals, reductions, or collected money.
+          </p>
+        </div>
+      </section>
+
+      <section class="story-section" id="time" aria-labelledby="time-title">
+        <div class="section-text wide">
+          <p class="section-number">07</p>
+          <h2 id="time-title">The uneven curb has a clock</h2>
+          <p>
+            The curb also changes across the day. Different violation families peak at different hours.
+          </p>
+          <p>
+            Street cleaning peaks at <strong>9:00</strong>. Meter / paid parking, no standing / no parking, and double parking peak around <strong>13:00</strong>. Hydrant tickets peak at <strong>6:00</strong>, while registration / inspection sticker tickets peak at <strong>8:00</strong>.
+          </p>
+          <p>
+            There is no single parking-ticket time. Each rule family has its own daily rhythm.
+          </p>
+          <p class="transition">
+            The final step is to be explicit about what this story can show and where it stops.
+          </p>
+        </div>
+
+        <figure class="chart-card">
+          <div class="chart-header">
+            <p class="eyebrow">Figure 6</p>
+            <h3>The curb has a clock</h3>
+          </div>
+          <div class="iframe-wrap">
+            <iframe
+              src="figures/fig_violation_family_hourly_profiles.html"
+              title="Hourly profiles for major violation families"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <figcaption>
+            <strong>How to read it:</strong> Each line shows one violation family's hourly profile. The y-axis is that family's share of daily issued tickets, so the chart compares timing patterns rather than raw size.
+            <br />
+            <strong>Careful:</strong> Issue time is a recorded ticket timestamp and may not be the exact time a violation began; some administrative or camera patterns may include processing artifacts.
+          </figcaption>
+          <p class="iframe-fallback">
+            If this figure does not load, <a href="figures/fig_violation_family_hourly_profiles.html">open the hourly profiles directly</a>.
+          </p>
+        </figure>
+
+        <div class="interpretation">
+          <p>
+            Issue time is the timestamp recorded on the ticket. It may not always be the exact moment a violation began, and some administrative or camera patterns may include processing artifacts.
+          </p>
+        </div>
+      </section>
+
+      <section class="story-section limits-section" id="limits" aria-labelledby="limits-title">
+        <div class="limits-panel">
+          <div class="section-text wide">
+            <p class="section-number">08</p>
+            <h2 id="limits-title">What this shows — and what it does not</h2>
+            <p>
+              This project is useful because it stays inside what the FY2025 issued-ticket dataset can actually support.
+            </p>
+            <p>
+              It can describe an enforcement footprint. It cannot explain every driver decision, every unticketed event, or every reason a precinct looks different from another precinct.
+            </p>
+          </div>
+
+          <div class="limits-columns" aria-label="Project interpretation boundaries">
+            <article>
+              <h3>This project can show</h3>
+              <ul>
+                <li>where issued parking tickets appear in the FY2025 data</li>
+                <li>how records differ between Precinct 0 and real mappable precincts</li>
+                <li>which violation families dominate different precincts</li>
+                <li>how ticket timing differs by rule family</li>
+                <li>how estimated fine value differs from raw ticket counts</li>
+              </ul>
+            </article>
+            <article>
+              <h3>This project cannot prove</h3>
+              <ul>
+                <li>who parked illegally but did not receive a ticket</li>
+                <li>whether enforcement was fair or unfair</li>
+                <li>whether specific demographic groups were targeted</li>
+                <li>actual collected revenue</li>
+                <li>causal reasons behind precinct differences</li>
+                <li>risk per driver, resident, car, curb space, or meter</li>
+              </ul>
+            </article>
+          </div>
+
+          <p class="limits-bottom-line">
+            The safest reading is not "this proves unfairness." The safer and stronger reading is: the issued-ticket system has a geography, and that geography is not uniform.
+          </p>
+          <p class="transition">
+            For readers who want the technical trail, the final section points to the notebook, artifacts, and sources.
+          </p>
+        </div>
+      </section>
+
+      <section id="references" class="story-section references" aria-labelledby="references-title">
+        <div class="section-text wide">
+          <p class="section-number">09</p>
+          <h2 id="references-title">Methods, sources, and references</h2>
+          <p>
+            The website is the short version. The explainer notebook contains the technical trail: data loading, cleaning, violation-family mapping, Precinct 0 treatment, real-precinct filtering, GeoJSON joins, fine estimation, timing analysis, and diagnostic checks.
+          </p>
+          <p>
+            Method summary: keep FY2025 issued-ticket records, separate Precinct 0 from real mappable precincts, group violation codes into readable families, map only records that can join to precinct geography, estimate fine value from the notebook logic, and compare issue-time rhythms by family.
+          </p>
+          <div class="doc-links" aria-label="Project documents">
+            <a href="../analysis_github.ipynb">Explainer notebook</a>
+            <a href="docs/website_copy_draft.md">Website copy draft</a>
+            <a href="docs/claim_citation_map.md">Claim-citation map</a>
+            <a href="docs/reference_bank.md">Reference bank</a>
+          </div>
+        </div>
+
+        <div class="references-list" aria-label="References used in this story">
+          <h3>Selected references</h3>
+          <ol class="reference-list">
+            <li>
+              <a href="https://data.cityofnewyork.us/d/m5vz-tzqv">Parking Violations Issued - Fiscal Year 2025</a>
+              <span>NYC Open Data / Data.gov, FY2025.</span>
+              <em>Dataset source for issued parking-ticket records and fiscal-year scope.</em>
+            </li>
+            <li>
+              <a href="https://data.cityofnewyork.us/d/y76i-bdw7">Police Precincts</a>
+              <span>NYC Open Data, maintained by NYC Department of City Planning, current open-data release.</span>
+              <em>Boundary source for real mappable precinct maps.</em>
+            </li>
+            <li>
+              <a href="https://www.nyc.gov/assets/finance/downloads/pdf/25pdf/2025-local-law-6-report.pdf">Annual Report of New York City Parking Tickets and Camera Violations: Fiscal Year 2025</a>
+              <span>NYC Department of Finance, 2025.</span>
+              <em>Official city context for parking tickets and camera violations.</em>
+            </li>
+            <li>
+              <a href="https://www.nyc.gov/site/finance/vehicles/services-violation-codes.page">Violation Codes, Fines, Rules, and Regulations</a>
+              <span>NYC Department of Finance, accessed for project documentation.</span>
+              <em>Official source for violation-code meanings and fine tables.</em>
+            </li>
+            <li>
+              <a href="https://www.nyc.gov/site/dsny/what-we-do/cleaning/street-cleaning-asp.page">Street Cleaning and Alternate Side Parking</a>
+              <span>NYC Department of Sanitation, accessed for project documentation.</span>
+              <em>Official context for street-cleaning and alternate-side parking rules.</em>
+            </li>
+            <li>
+              <a href="https://www.nyc.gov/html/dot/html/motorist/parking-rates.shtml">Parking Meters</a>
+              <span>NYC Department of Transportation, accessed for project documentation.</span>
+              <em>Official context for meter and paid-parking rules.</em>
+            </li>
+            <li>
+              <a href="https://www.mta.info/agency/new-york-city-transit/automated-camera-enforcement">Automated Camera Enforcement</a>
+              <span>Metropolitan Transportation Authority, accessed for project documentation.</span>
+              <em>Official context for bus-mounted camera enforcement and camera-related records.</em>
+            </li>
+            <li>
+              <a href="https://www.nyc.gov/html/dot/downloads/pdf/speed-camera-faq.pdf">Speed Cameras: Frequently Asked Questions</a>
+              <span>NYC Department of Transportation, accessed for project documentation.</span>
+              <em>Official context for school-zone speed camera records.</em>
+            </li>
+            <li>
+              <a href="https://portal.311.nyc.gov/article/?kanumber=KA-02326">Red Light Cameras</a>
+              <span>NYC311, accessed for project documentation.</span>
+              <em>Official context for red-light camera records.</em>
+            </li>
+            <li>
+              <a href="https://www.urban.org/urban-wire/what-parking-ticket-data-can-and-cannot-tell-us-amid-calls-reform-fines-and-fees">What Parking Ticket Data Can and Cannot Tell Us Amid Calls to Reform Fines and Fees</a>
+              <span>Urban Institute, 2020.</span>
+              <em>Used for public-data limitations and the need to avoid overclaiming.</em>
+            </li>
+            <li>
+              <a href="https://nacto.org/program/reimagining-city-streets/multimodal-streets/curb-management/">Curb Management</a>
+              <span>NACTO, accessed for project context.</span>
+              <em>Used for framing the curb as a managed, limited city resource.</em>
+            </li>
+            <li>
+              <a href="https://danlevine.work/projects/look-for-inequities-in-parking-tickets/">Look for Inequities in Parking Tickets</a>
+              <span>Dan Levine, public-interest analysis.</span>
+              <em>Used as outside context on why geographic parking-ticket analysis needs careful wording.</em>
+            </li>
+            <li>
+              <a href="../analysis_github.ipynb">Project explainer notebook</a>
+              <span>Taimur Hassan, DTU Social Visualization final project, 2026.</span>
+              <em>Technical trail for cleaning, processing, figures, and project-specific numbers.</em>
+            </li>
+          </ol>
+        </div>
+
+        <div class="project-files" aria-label="Project files">
+          <h3>Project files</h3>
+          <p>
+            These links point to the project materials used to build the story. The full raw parking-ticket CSV is intentionally not linked here because it is large; use NYC Open Data for the source dataset.
+          </p>
+          <div class="project-file-links">
+            <a href="../analysis_github.ipynb" class="button-link">Read the explainer notebook</a>
+            <a href="#" class="button-link">View the GitHub repository</a>
+            <!-- TODO: replace with final GitHub repository URL -->
+            <a href="https://data.cityofnewyork.us/d/m5vz-tzqv" class="button-link">Open the NYC Open Data dataset</a>
+            <a href="../Parking_Violations_Issued_Data_Dictionary.xlsx" class="button-link">Open the data dictionary</a>
+            <a href="docs/README.md" class="button-link">View the final material packet</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        The Uneven Curb. DTU Social Visualization final project using NYC FY2025 issued parking-ticket records.
+      </p>
+      <a class="back-to-top" href="#top">Back to top</a>
+    </footer>
+  </body>
+</html>
