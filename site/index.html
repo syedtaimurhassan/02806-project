@@ -42,13 +42,10 @@
           <h1 id="hero-title">The Uneven Curb</h1>
           <p class="subtitle">How NYC's Parking-Ticket System Changes Depending on Where You Stand</p>
           <p class="hero-copy">
-            NYC issued millions of parking tickets in FY2025. At first, that looks like one giant citywide machine.
+            NYC issued more than 16 million parking tickets in FY2025. Nearly half of them come from automated cameras — school-zone speed cameras, bus-lane cameras, and red-light systems — not an officer walking the curb.
           </p>
           <p class="hero-copy">
-            But once we separate administrative records from real curbside precinct enforcement, a stranger and more interesting pattern appears: the parking-ticket system changes depending on where, when, and what kind of rule you are looking at.
-          </p>
-          <p class="hero-copy">
-            This project asks what the FY2025 issued-ticket dataset can show directly: the enforcement footprint across administrative buckets, real mappable precincts, violation families, ticket timing, and estimated fine value.
+            The officer-written half spreads across 78 real precincts, unevenly: different neighborhoods see different rule types, different fine amounts, and different enforcement schedules. This story maps those layers.
           </p>
           <div class="hero-actions" aria-label="Primary story links">
             <a class="button primary" href="#intro">Start the story</a>
@@ -58,11 +55,11 @@
         <aside class="stat-panel" aria-label="Project quick facts">
           <div>
             <strong>16,250,291</strong>
-            <span>cleaned FY2025 issued-ticket records</span>
+            <span>NYC parking tickets issued, July 2024 – June 2025</span>
           </div>
           <div>
             <strong>46.3%</strong>
-            <span>assigned to Precinct 0</span>
+            <span>of tickets from automated cameras, not street officers</span>
           </div>
           <div>
             <strong>78</strong>
@@ -94,7 +91,7 @@
             </p>
           </div>
           <div class="callout">
-            <h3>Safe project claim</h3>
+            <h3>What this story can show</h3>
             <p>
               This story is about the enforcement footprint of issued tickets. It does not claim to measure every parking-rule event, final payment outcome, or why a ticket was issued.
             </p>
@@ -114,7 +111,7 @@
               Each row is an issued ticket record. That matters. An issued ticket is not the same as a paid ticket, a final payment record, or a complete count of every parking-rule event in the city.
             </p>
             <p>
-              The dataset is strongest when used for what it can show directly: where issued tickets appear in the records, which violation families they belong to, when they were issued, and how estimated fine value changes the picture.
+              The dataset is strongest when used for what it can show directly: where issued tickets appear in the records, which <em>violation families</em> they belong to (the analysis groups NYC's 90-plus raw violation codes into readable categories — street cleaning, meters, hydrant, no-standing, registration sticker, double parking, and camera-related groups), when they were issued, and how estimated fine value changes the picture.
             </p>
             <p class="transition">
               Once the file is cleaned, the first surprise is that one of the biggest "places" in the data is not really a place at all.
@@ -155,7 +152,10 @@
             In the cleaned FY2025 data, Precinct 0 contains <strong>7,524,683 issued tickets</strong>, or <strong>46.3%</strong> of retained records. That is almost half the dataset sitting in a category that cannot be mapped like a regular place.
           </p>
           <p>
-            Its violation-family mix also looks different. Precinct 0 is dominated by camera and administrative-style families such as school-zone speed, bus lane / bus stop, red light, and MTA camera double parking.
+            Its violation-family mix also looks different. <strong>School-zone speed cameras</strong> alone make up <strong>63.8%</strong> of Precinct 0 tickets — more than 4.8 million records from cameras placed near NYC schools to catch speeding drivers. Bus lane and bus-stop cameras, red-light cameras, and MTA bus-mounted cameras (which photograph vehicles blocking bus stops and trigger automatic fines) account for most of the rest.
+          </p>
+          <p>
+            The timing confirms the two-system picture. Real precinct tickets peak at <strong>9:00</strong>, matching NYC's morning alternate-side parking windows — rules that require drivers to temporarily move their cars so street sweepers can pass, enforced by officers walking the curb. Precinct 0 tickets peak at <strong>15:00</strong>, around school dismissal time and the start of afternoon rush, when school-zone and bus-lane cameras are most active.
           </p>
           <p class="transition">
             With this administrative bucket separated, the real curbside geography becomes much clearer.
@@ -196,7 +196,7 @@
           <p class="section-number">04</p>
           <h2 id="concentration-title">The real curb is not evenly shared</h2>
           <p>
-            After separating Precinct 0 and unmappable precinct labels, the analysis focuses on <strong>78 real mappable precincts</strong>. These precincts contain <strong>8,724,635 issued tickets</strong>.
+            After separating Precinct 0 and precinct codes that do not match any of NYC's 78 mapped police precincts, the analysis focuses on <strong>78 real mappable precincts</strong>. These precincts contain <strong>8,724,635 issued tickets</strong>.
           </p>
           <p>
             The real curbside ticket footprint is not spread evenly. The top <strong>10%</strong> of mappable precincts account for <strong>27.2%</strong> of real-precinct tickets. The top <strong>25%</strong> account for <strong>49.9%</strong>.
@@ -204,6 +204,12 @@
           <p>
             That does not make the map a scorecard of what drivers do. It means the issued-ticket enforcement footprint is concentrated in some precincts more than others.
           </p>
+          <div class="callout">
+            <h3>Concentration goes deeper than geography</h3>
+            <p>
+              The same pattern holds at the vehicle level. Among the roughly 4 million vehicle keys identified in the FY2025 data, <strong>56.6%</strong> received more than one ticket — and those repeat vehicles account for <strong>89.2%</strong> of all tickets. The top <strong>1%</strong> of identified vehicles hold <strong>14.9%</strong> of all tickets. One anonymous vehicle key collected <strong>1,088 tickets</strong> in the fiscal year. Commercial and carrier plates have the highest average tickets per vehicle, pointing to delivery fleets and high-mileage commercial drivers as a large share of the repeat-ticket concentration.
+            </p>
+          </div>
           <p class="transition">
             But ticket volume is only the first layer; the next question is what kinds of rules dominate in different places.
           </p>
@@ -231,6 +237,28 @@
           </p>
         </figure>
 
+        <figure class="chart-card">
+          <div class="chart-header">
+            <p class="eyebrow">Figure 3b</p>
+            <h3>How concentrated is the footprint?</h3>
+          </div>
+          <div class="iframe-wrap">
+            <iframe
+              src="figures/fig_real_precinct_concentration_curve.html"
+              title="Concentration curve showing how unevenly FY2025 tickets are distributed across real precincts"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <figcaption>
+            <strong>How to read it:</strong> The diagonal line is a perfectly even distribution. The farther the curve bends away from it, the more concentrated the ticket footprint. The top 10% of precincts hold 27.2% of real-precinct tickets; the top 25% hold 49.9%.
+            <br />
+            <strong>Careful:</strong> Concentration here means concentration of issued-ticket records, not concentration of illegal parking behavior.
+          </figcaption>
+          <p class="iframe-fallback">
+            If this figure does not load, <a href="figures/fig_real_precinct_concentration_curve.html">open the concentration curve directly</a>.
+          </p>
+        </figure>
+
         <div class="interpretation">
           <p>
             This map shows where issued tickets appear in the records. It does not include the exposure data needed to compare parking demand or curb supply across precincts.
@@ -249,7 +277,7 @@
             Among real mappable precincts, <strong>Street cleaning</strong> is the dominant family in <strong>44 precincts</strong>. <strong>No standing / no parking</strong> leads in <strong>12 precincts</strong>. <strong>Meter / paid parking</strong> leads in <strong>12 precincts</strong>.
           </p>
           <p>
-            The specialization heatmap adds local flavor. A ratio above 1 means a violation family is more prominent in that precinct than it is citywide among real precincts.
+            The specialization heatmap adds local flavor. A ratio above 1 means a violation family is more prominent in that precinct than it is citywide among real precincts. Two patterns stand out on the map: Staten Island precincts (120–123) show <strong>registration and inspection sticker</strong> ratios well above the city average, with Precinct 123 at <strong>5.54</strong> — the highest in the dataset. Upper Manhattan precincts 34 and 44 stand out for <strong>double parking</strong>, with ratios around 3.
           </p>
           <p class="transition">
             Rule type also matters because not every issued ticket carries the same estimated dollar amount.
@@ -278,6 +306,28 @@
           </p>
         </figure>
 
+        <figure class="chart-card map-card">
+          <div class="chart-header">
+            <p class="eyebrow">Figure 4b</p>
+            <h3>Which rule dominates each precinct?</h3>
+          </div>
+          <div class="iframe-wrap">
+            <iframe
+              src="figures/fig_dominant_family_by_precinct_map.html"
+              title="Map showing the dominant violation family in each real mappable precinct"
+              loading="lazy"
+            ></iframe>
+          </div>
+          <figcaption>
+            <strong>How to read it:</strong> Each precinct is colored by its largest violation family. Hover to see the top families and their shares.
+            <br />
+            <strong>Careful:</strong> "Dominant" means the single largest family by issued-ticket count in that precinct. It does not imply that other families are absent or that the dominant family is uniquely enforced there.
+          </figcaption>
+          <p class="iframe-fallback">
+            If this figure does not load, <a href="figures/fig_dominant_family_by_precinct_map.html">open the dominant-family map directly</a>.
+          </p>
+        </figure>
+
         <div class="interpretation">
           <p>
             The same citywide system can feel different depending on which violation families are most visible around a local curb.
@@ -296,7 +346,7 @@
             Using the notebook's fine-estimation logic, real mappable precincts add up to <strong>$612,808,346.26</strong> in estimated fine value, with an average estimated fine of about <strong>$70.24 per ticket</strong>.
           </p>
           <p>
-            High-ticket precincts are often also high estimated-fine-value precincts. But the rankings are not identical because rule mix matters.
+            High-ticket precincts are often also high estimated-fine-value precincts. But the rankings are not identical, because rule mix matters: a street-cleaning precinct with many cheap tickets can fall behind a precinct with fewer but higher-fine hydrant or no-standing violations. Precinct 33 climbs 9 rank positions when switching from ticket count to estimated fine value; Precinct 78 drops 10.
           </p>
           <p class="transition">
             The same system also changes across the day, so the next layer is ticket timing.
@@ -340,7 +390,7 @@
             The curb also changes across the day. Different violation families peak at different hours.
           </p>
           <p>
-            Street cleaning peaks at <strong>9:00</strong>. Meter / paid parking, no standing / no parking, and double parking peak around <strong>13:00</strong>. Hydrant tickets peak at <strong>6:00</strong>, while registration / inspection sticker tickets peak at <strong>8:00</strong>.
+            Street cleaning peaks at <strong>9:00</strong>, matching the morning alternate-side parking windows when officers are most active. Meter / paid parking, no standing / no parking, and double parking peak around <strong>13:00</strong>, following midday enforcement patterns. Hydrant tickets peak at <strong>6:00</strong> — the early-morning hour when officer shifts begin and overnight violators who risked a hydrant spot get caught. Registration and inspection sticker tickets peak at <strong>8:00</strong>, as officers begin their rounds before heavy traffic builds.
           </p>
           <p>
             There is no single parking-ticket time. Each rule family has its own daily rhythm.
@@ -521,8 +571,7 @@
           </p>
           <div class="project-file-links">
             <a href="../analysis_github.ipynb" class="button-link">Read the explainer notebook</a>
-            <a href="#" class="button-link">View the GitHub repository</a>
-            <!-- TODO: replace with final GitHub repository URL -->
+            <a href="https://github.com/syedtaimurhassan/02806-project" class="button-link">View the GitHub repository</a>
             <a href="https://data.cityofnewyork.us/d/m5vz-tzqv" class="button-link">Open the NYC Open Data dataset</a>
             <a href="../Parking_Violations_Issued_Data_Dictionary.xlsx" class="button-link">Open the data dictionary</a>
             <a href="docs/README.md" class="button-link">View the final material packet</a>

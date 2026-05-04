@@ -3,7 +3,7 @@
 **/.DS_Store
 .ipynb_checkpoints/
 .vscode/
-
+.segal&heer.pdf
 # Python / notebook cache
 __pycache__/
 *.py[cod]
