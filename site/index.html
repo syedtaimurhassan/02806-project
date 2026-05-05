@@ -88,7 +88,7 @@
               A parking ticket looks like a simple thing — a car broke a rule, someone wrote it up. The FY2025 dataset doesn't work that way.
             </p>
             <p>
-              Once the records are cleaned and separated, NYC's parking enforcement splits into two distinct systems. One runs on cameras and sits in an administrative bucket that can't be mapped to real neighborhoods. The other belongs to 78 real street precincts, where officers enforce rules like street cleaning, meters, and no-standing zones on foot.
+              Once the records are cleaned and separated, NYC's parking enforcement splits into two distinct systems. One runs on automated cameras — their tickets land in an administrative bucket the dataset calls <strong>Precinct 0</strong>, a code used for any violation not issued by a real street officer. The other system belongs to 78 real precincts, where officers enforce rules like street cleaning, meters, and no-standing zones on foot.
             </p>
             <p>
               Even within those 78 precincts, the picture isn't the same everywhere. The curb changes depending on where — and when — you're standing on it.
@@ -157,10 +157,10 @@
           <p class="section-number">03</p>
           <h2 id="precinct-zero-title">The place that isn't a place</h2>
           <p>
-            The largest single category in the dataset is <strong>Precinct 0</strong> — <strong>7,524,683 tickets</strong>, or <strong>46.3%</strong> of all records. That's nearly half the data sitting in something that can't be treated like a real neighborhood on a map.
+            <strong>Precinct 0</strong> is not a real police precinct. It's the code NYC's parking system assigns to every ticket that wasn't issued by a street officer — a catch-all label for automated camera enforcement. In the FY2025 data it holds <strong>7,524,683 tickets</strong>, or <strong>46.3%</strong> of all records. Nearly half the dataset sits in a single administrative label that has no address, no map boundary, and no patrol officer behind it.
           </p>
           <p>
-            Most of those tickets weren't written by an officer. <strong>School-zone speed cameras</strong> alone account for <strong>63.8%</strong> of Precinct 0 records — over 4.8 million tickets from cameras placed near schools to catch speeding drivers. Bus-lane cameras, red-light cameras, and MTA bus-mounted cameras (which photograph vehicles blocking bus stops and automatically trigger fines) cover most of the rest.
+            The breakdown makes clear why. <strong>School-zone speed cameras</strong> alone account for <strong>63.8%</strong> of Precinct 0 records — over 4.8 million tickets from cameras placed near schools to catch speeding drivers. Bus-lane cameras, red-light cameras, and MTA bus-mounted cameras (which photograph vehicles blocking bus stops and automatically trigger fines) cover most of the rest.
           </p>
           <p>
             The timing makes the two-system split obvious. Real precinct tickets peak at <strong>9 in the morning</strong> — when officers are working alternate-side parking windows, the rules that require drivers to temporarily move their cars so street sweepers can pass. Precinct 0 peaks at <strong>3 in the afternoon</strong>, school dismissal time, when speed cameras hit hardest.
