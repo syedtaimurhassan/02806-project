@@ -325,37 +325,35 @@ header.hero,
 }
 
 /* ---- DTU Logo --------------------------------------------- */
-.hero-kicker {
+.header-left {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 14px;
 }
 
-.hero-kicker .kicker {
-  margin-bottom: 0;
-}
-
-.dtu-badge {
+.dtu-nav-logo {
   display: block;
-  height: 40px;
+  height: 26px;
   width: auto;
   flex-shrink: 0;
+  /* a thin vertical separator between brand and logo */
+  padding-left: 14px;
+  border-left: 1px solid var(--line-strong);
 }
 
 .dtu-footer-logo {
   display: block;
-  height: 32px;
+  height: 24px;
   width: auto;
   flex-shrink: 0;
   filter: brightness(0) invert(1);
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 .footer-left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .footer-left p {
