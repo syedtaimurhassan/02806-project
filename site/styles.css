@@ -324,6 +324,44 @@ header.hero,
   max-width: var(--text-width);
 }
 
+/* ---- DTU Logo --------------------------------------------- */
+.hero-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.hero-kicker .kicker {
+  margin-bottom: 0;
+}
+
+.dtu-badge {
+  display: block;
+  height: 40px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.dtu-footer-logo {
+  display: block;
+  height: 32px;
+  width: auto;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-left p {
+  margin: 0;
+}
+
 /* ---- Kicker / eyebrow ------------------------------------- */
 .kicker,
 .section-kicker,
