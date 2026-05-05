@@ -726,6 +726,11 @@ section.wide-section.tinted {
   margin-top: 34px;
 }
 
+/* Map iframes inside a grid column don't need as much height */
+.section-grid .chart-card.map-card iframe {
+  min-height: 580px;
+}
+
 /* ---- Chart Header ----------------------------------------- */
 .chart-header {
   display: flex;
