@@ -324,21 +324,21 @@ header.hero,
   max-width: var(--text-width);
 }
 
-/* ---- DTU Logo --------------------------------------------- */
+/* ---- Header / brand --------------------------------------- */
 .header-left {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-.dtu-nav-logo {
+.brand-ny-logo {
   display: block;
-  height: 26px;
-  width: auto;
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  border-radius: 50%;
   flex-shrink: 0;
-  /* a thin vertical separator between brand and logo */
-  padding-left: 14px;
-  border-left: 1px solid var(--line-strong);
+  border: 2px solid var(--line-strong);
 }
 
 .dtu-footer-logo {
@@ -371,6 +371,24 @@ header.hero,
   font-weight: 900;
   letter-spacing: 0;
   text-transform: uppercase;
+}
+
+.kicker-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.kicker-wrap .kicker {
+  margin: 0;
+}
+
+.dtu-kicker-logo {
+  display: block;
+  height: 32px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 /* ---- Headings --------------------------------------------- */
