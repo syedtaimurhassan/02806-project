@@ -152,9 +152,12 @@ p { margin: 0 0 1.1em; }
   color: var(--ink);
 }
 .topnav-brand .brand-mark {
-  color: var(--accent);
-  font-size: 1.1em;
-  line-height: 1;
+  width: 1.35rem;
+  height: 1.4rem;
+  object-fit: contain;
+  object-position: center bottom;
+  flex: 0 0 auto;
+  filter: saturate(0.88) contrast(1.05);
 }
 .topnav-links {
   list-style: none;
@@ -251,6 +254,19 @@ p { margin: 0 0 1.1em; }
 }
 .eyebrow-mark {
   color: var(--accent);
+}
+.eyebrow-org {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.eyebrow-org img {
+  width: auto;
+  height: 1.05em;
+  max-width: 2.8rem;
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: saturate(0.95) contrast(1.06);
 }
 
 .hero-title {
@@ -1157,8 +1173,12 @@ p { margin: 0 0 1.1em; }
   margin-bottom: 1rem;
 }
 .footer-brand .brand-mark {
-  color: var(--accent);
-  font-size: 1.1em;
+  width: 1.45rem;
+  height: 1.5rem;
+  object-fit: contain;
+  object-position: center bottom;
+  flex: 0 0 auto;
+  filter: saturate(0.85) contrast(1.08);
 }
 .footer-text {
   max-width: 36rem;
