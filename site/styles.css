@@ -208,9 +208,29 @@ p { margin: 0 0 1.1em; }
     radial-gradient(circle at 20% 30%, rgba(232, 93, 4, 0.04) 0, transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(45, 74, 107, 0.04) 0, transparent 40%);
   pointer-events: none;
+  z-index: 0;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: clamp(5rem, 12vw, 8rem);
+  right: clamp(1rem, 7vw, 7rem);
+  width: min(42vw, 34rem);
+  aspect-ratio: 1;
+  background: url("assets/nyc-seal.svg") center / contain no-repeat;
+  opacity: 0.075;
+  filter:
+    grayscale(1)
+    contrast(0.85)
+    drop-shadow(1px 1px 0 rgba(255, 255, 255, 0.62))
+    drop-shadow(-1px -1px 0 rgba(26, 26, 26, 0.18));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
 }
 .hero-inner {
   position: relative;
+  z-index: 1;
   max-width: var(--col-full);
   margin: 0 auto;
 }
@@ -339,6 +359,7 @@ p { margin: 0 0 1.1em; }
 .curb-stripe {
   margin-top: clamp(2.5rem, 5vw, 4rem);
   position: relative;
+  z-index: 1;
   height: 24px;
   border-top: 4px solid var(--ink);
   border-bottom: 4px solid var(--ink);
@@ -1268,6 +1289,13 @@ p { margin: 0 0 1.1em; }
   .hero-stat:last-child { border-bottom: none; }
   .hero-stat:not(:first-child) {
     padding-left: 0;
+  }
+
+  .hero::after {
+    top: 8.5rem;
+    right: -5rem;
+    width: 19rem;
+    opacity: 0.045;
   }
 
   .neighborhood-card {
