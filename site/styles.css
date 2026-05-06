@@ -7,17 +7,17 @@
 /* ---------- Custom properties --------------------------------------------- */
 :root {
   /* Color palette */
-  --bg:           #F5F1EA;       /* warm cream */
-  --bg-card:     #ECE6DA;        /* slightly deeper cream for cards */
+  --bg:           #F7F7F4;       /* neutral newsprint off-white */
+  --bg-card:      #ECEDEA;       /* quiet neutral surface */
   --ink:         #1A1A1A;        /* near-black */
   --ink-soft:    #3A3A3A;        /* body text slightly lighter */
   --ink-mute:    #6B6B6B;        /* captions, metadata */
   --ink-quiet:   #9A9A9A;        /* timestamps, hairlines */
 
   --accent:      #E85D04;        /* parking-ticket orange */
-  --accent-soft: #F4D7C4;        /* orange tinted background */
+  --accent-soft: #F7E2D7;        /* restrained orange tint */
   --navy:        #2D4A6B;        /* deep navy for measured calm */
-  --navy-soft:   #DEE6EF;
+  --navy-soft:   #E7ECF1;
   --yellow:      #F5C518;        /* curb-stripe yellow */
 
   --hairline:    #1A1A1A;
@@ -135,7 +135,7 @@ p { margin: 0 0 1.1em; }
   justify-content: space-between;
   gap: var(--gap-md);
   padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
-  background: rgba(245, 241, 234, 0.92);
+  background: rgba(247, 247, 244, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--hairline-soft);
@@ -703,7 +703,7 @@ p { margin: 0 0 1.1em; }
   justify-content: center;
   align-items: center;
   padding: 0.8rem 1.2rem;
-  border-right: 1px solid rgba(245, 241, 234, 0.2);
+  border-right: 1px solid rgba(247, 247, 244, 0.2);
   padding-right: clamp(1.5rem, 3vw, 2.5rem);
 }
 .nbhd-num {
@@ -719,7 +719,7 @@ p { margin: 0 0 1.1em; }
   font-size: var(--text-xs);
   letter-spacing: 0.18em;
   margin-top: 0.4rem;
-  color: rgba(245, 241, 234, 0.6);
+  color: rgba(247, 247, 244, 0.6);
 }
 .nbhd-body h4 {
   font-family: var(--font-display);
@@ -732,7 +732,7 @@ p { margin: 0 0 1.1em; }
 }
 .nbhd-body p {
   font-size: 0.98rem;
-  color: rgba(245, 241, 234, 0.8);
+  color: rgba(247, 247, 244, 0.8);
   line-height: 1.55;
 }
 .nbhd-stat {
@@ -755,7 +755,7 @@ p { margin: 0 0 1.1em; }
   font-size: var(--text-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(245, 241, 234, 0.7);
+  color: rgba(247, 247, 244, 0.7);
 }
 
 /* ---------- Stat triptych (repeat-vehicle section) ----------------------- */
@@ -808,7 +808,7 @@ p { margin: 0 0 1.1em; }
   max-width: 22rem;
 }
 .stat-block-feature .stat-text {
-  color: rgba(245, 241, 234, 0.85);
+  color: rgba(247, 247, 244, 0.85);
 }
 .stat-text strong {
   color: var(--ink);
@@ -908,14 +908,14 @@ p { margin: 0 0 1.1em; }
   font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: rgba(245, 241, 234, 0.85);
+  color: rgba(247, 247, 244, 0.85);
 }
 .money-warning {
   position: relative;
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-style: italic;
-  color: rgba(245, 241, 234, 0.6);
+  color: rgba(247, 247, 244, 0.6);
   margin-top: 0.8rem;
 }
 
@@ -1140,7 +1140,7 @@ p { margin: 0 0 1.1em; }
   border-top: 1px solid var(--hairline);
   padding: clamp(2.5rem, 5vw, 4rem) clamp(1rem, 4vw, 2.5rem);
   background: var(--ink);
-  color: rgba(245, 241, 234, 0.75);
+  color: rgba(247, 247, 244, 0.75);
 }
 .footer-inner {
   max-width: var(--col-full);
@@ -1173,7 +1173,7 @@ p { margin: 0 0 1.1em; }
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(245, 241, 234, 0.55);
+  color: rgba(247, 247, 244, 0.55);
   flex-wrap: wrap;
 }
 .footer-meta a {
@@ -1303,7 +1303,7 @@ p { margin: 0 0 1.1em; }
   }
   .nbhd-precinct {
     border-right: none;
-    border-bottom: 1px solid rgba(245, 241, 234, 0.2);
+    border-bottom: 1px solid rgba(247, 247, 244, 0.2);
     padding-right: 0;
     padding-bottom: 1.5rem;
   }
