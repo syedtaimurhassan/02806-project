@@ -16,7 +16,7 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="styles.css?v=20260506-3" />
+  <link rel="stylesheet" href="styles.css?v=20260506-5" />
 </head>
 <body>
   <!-- Reading progress bar (top of viewport) -->
@@ -236,7 +236,7 @@
       </div>
 
       <!-- Side-by-side: official ticket image + caption -->
-      <figure class="figure figure-photo">
+      <figure class="figure figure-photo figure-photo-journal">
         <div class="photo-wrap photo-frame-orange">
           <img src="assets/complaint.jpg" alt="An NYC parking violation summons, showing fields for plate, violation code, and issuing officer." />
         </div>
@@ -306,23 +306,27 @@
         </p>
       </div>
 
-      <figure class="figure figure-iframe reveal">
-        <div class="figure-meta">
-          <span class="figure-tag">Figure 2</span>
-          <span class="figure-data">Data: <code>family_channel_summary.csv</code></span>
+      <figure class="figure figure-iframe figure-split figure-split-precinct reveal">
+        <div class="figure-copy">
+          <div class="figure-meta">
+            <span class="figure-tag">Figure 2</span>
+            <span class="figure-data">Data: <code>family_channel_summary.csv</code></span>
+          </div>
+          <h3 class="figure-title">Precinct 0 vs the real precincts</h3>
+          <figcaption>
+            <p>
+              The camera families that dominate Precinct 0 — school-zone speed, bus-lane, red-light — barely appear in real precincts at all. Hover for raw counts and percentages.
+            </p>
+            <p class="figure-fallback">
+              If the figure doesn't load, <a href="figures/fig_precinct0_vs_real_precincts.html" target="_blank" rel="noopener">open it in a new tab</a>.
+            </p>
+          </figcaption>
         </div>
-        <h3 class="figure-title">Precinct 0 vs the real precincts</h3>
-        <div class="iframe-wrap">
-          <iframe src="figures/fig_precinct0_vs_real_precincts.html" loading="lazy" title="Precinct 0 vs real precincts comparison" scrolling="no"></iframe>
+        <div class="figure-media">
+          <div class="iframe-wrap">
+            <iframe src="figures/fig_precinct0_vs_real_precincts.html" loading="lazy" title="Precinct 0 vs real precincts comparison" scrolling="no"></iframe>
+          </div>
         </div>
-        <figcaption>
-          <p>
-            The camera families that dominate Precinct 0 — school-zone speed, bus-lane, red-light — barely appear in real precincts at all. Hover for raw counts and percentages.
-          </p>
-          <p class="figure-fallback">
-            If the figure doesn't load, <a href="figures/fig_precinct0_vs_real_precincts.html" target="_blank" rel="noopener">open it in a new tab</a>.
-          </p>
-        </figcaption>
       </figure>
 
       <div class="callout callout-warning">
@@ -712,7 +716,7 @@
         </figcaption>
       </figure>
 
-      <figure class="figure figure-photo">
+      <figure class="figure figure-photo figure-photo-journal">
         <div class="photo-wrap">
           <img src="assets/asp-guide.jpg" alt="An NYC alternate-side parking schedule sign, showing days and times when a particular block is swept." />
         </div>
@@ -930,6 +934,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260506-3"></script>
+  <script src="script.js?v=20260506-5"></script>
 </body>
 </html>
