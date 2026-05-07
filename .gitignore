@@ -23,8 +23,14 @@ Parking_Violations_Issued_-_Fiscal_Year_2025.csv
 # Heavy executed notebook (142 MB with outputs). Commit the stripped copy instead.
 analysis.ipynb
 
+# Older draft notebook — superseded by explainer_notebook.ipynb.
+analysis_github.ipynb
+
 # Generated/intermediate analysis outputs — not needed by the static site.
 outputs/
+
+# Plotly iframe renderer output (created when the notebook runs locally).
+iframe_figures/
 
 # Local course notes and drafts not part of the final submission.
 social_viz_llm_context.md
