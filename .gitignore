@@ -20,13 +20,16 @@ env/
 Parking_Violations_Issued_-_Fiscal_Year_2025.csv
 *.zip
 
-# Heavy executed notebook (142 MB with outputs). Commit the stripped copy instead.
+# Heavy draft notebook. The final executed notebook is explainer_notebook.ipynb
+# and is intentionally tracked as long as it stays below GitHub's 100 MB limit.
 analysis.ipynb
 
 # Older draft notebook — superseded by explainer_notebook.ipynb.
 analysis_github.ipynb
 
-# Generated/intermediate analysis outputs — not needed by the static site.
+# Generated/intermediate analysis outputs — not needed by the static site
+# or the submitted notebook. Final website figures live in tracked
+# site/figures/ instead.
 outputs/
 
 # Plotly iframe renderer output (created when the notebook runs locally).
@@ -45,6 +48,18 @@ segal&heer.pdf
 
 # Lightweight site data used during development only.
 site/data/
+
+# Final website figure exports are intentionally tracked.
+!site/figures/fig8_violation_family_totals.html
+!site/figures/fig_precinct0_vs_real_precincts.html
+!site/figures/fig_real_precinct_concentration_curve.html
+!site/figures/fig_real_precinct_ticket_share_map.html
+!site/figures/fig27_tickets_per_vehicle_plate_class.html
+!site/figures/fig_dominant_family_by_precinct_map.html
+!site/figures/fig10_family_by_borough.html
+!site/figures/fig_real_precinct_count_vs_estimated_fine_value.html
+!site/figures/fig_violation_family_hourly_profiles.html
+!site/figures/fig_real_precinct_family_specialization_heatmap.html
 
 # Unused optional figure exports — not embedded in the story.
 site/figures/fig12_dominant_family_by_precinct.html
